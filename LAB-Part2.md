@@ -5,6 +5,8 @@ Add testing to your http server using chai-http.
 
 Add three more options to your server and enhance the response.
 
+Make sure you are returning status code and response type.
+
 ## Directions
 
 * Add at least three new possible responses, at least one covering each of the following:
@@ -12,6 +14,8 @@ Add three more options to your server and enhance the response.
 	* Query parameters
 	* Http Verb
 	
+* Add an invalid response that yields a `400` status code.
+
 * Your response also needs to include some information based on the original request (e.g. show the actual requested url)
 	
 * You are free to use other response messages and variations as long as they are distinguishable. 
@@ -24,6 +28,8 @@ Plain text or html is fine.
 ## Bonus
 
 * **1pts** Create additional option utilizing Http header information
+
+* **2pts** Return a `json` response based on passed on query parameter of `format=json`
 
 ## Rubric
 

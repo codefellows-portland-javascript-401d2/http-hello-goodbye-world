@@ -3,6 +3,8 @@
 
 Create an http server that either responds with "hello world" or "goodbye world".
 
+Feel free to add a library like `cowsay` or `figlet` to enhance your response. :)
+
 ## Directions
 
 * Use the Node.js `http` module to create an http server. 
