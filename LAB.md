@@ -7,22 +7,11 @@ Create an http server that either responds with "hello world" or "goodbye world"
 
 * Use the Node.js `http` module to create an http server. 
 
-* Your server needs to provide at least two possible responses based on one or more of the following:
-	* Url (path)
-	* Query parameters
-	* Http Verb
-	
-* Your reponse also needs to include some information based on the original request (e.g. show the actual requested url)
-	
-* You are free to use other response messages and variations as long as they are distinguishable. Plain text or html is fine.
-	
+* Your server needs to provide at least two possible responses based on Url (path)
+		
 * No tests are required, we will cover E2E Http testing tomorrow.
 
 * As there are no tests, make sure to describe how to alter response based on request in `README.md` 
-
-## Bonus
-
-* **1pts** Create additional option utilizing Http header information
 
 ## Rubric
 
