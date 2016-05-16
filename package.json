@@ -1,0 +1,19 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "An http server that either responds with \"hello world\" or \"goodbye world\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jluangphasy/http-hello-goodbye-world.git"
+  },
+  "author": "Johnny Luangphasy (https://github.com/jluangphasy)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jluangphasy/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/jluangphasy/http-hello-goodbye-world#readme"
+}
