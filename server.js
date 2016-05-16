@@ -18,6 +18,15 @@ const server = http.createServer( (req, res ) => {
     res.write('Oh-oh. You have found the super secret page. This message will self-destruct in 3 - 2 - 1 -  BOOM!');
     res.end();
     break;
+  case 'random':
+    var random = function randomNumber(min,max)
+    {
+      return Math.floor(Math.random()*(max-min+1)+min);
+    };
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Here\'s your super random number for the day: ' + random(1,1000) + '!' + ' Enjoy!');
+    res.end();
+    break;
   }
 });
 
