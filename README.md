@@ -1,10 +1,17 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
+# HTTP server
 
-* Lab instructions are [here](LAB.md)
+### How to Use
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+- To try the app, run the following command in the command line from this directory: `node http-server.js`.
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
+- In a new terminal window, run the following command: `telnet [your IP address] 4400`.
 
-* Replace this README.md with your own!
+- In a browser, navigate to the following url: http://localhost:4400/
+
+  - you can also navigate to the following URLs:
+
+    - http://localhost:4400/index.html (will show the same content as if you navigated to http://localhost:4400/)
+
+    - http://localhost:4400/about.html (will show about-specific content)
+
+    - Navigating to any other page will show a simple bit of "Hello World" text.
