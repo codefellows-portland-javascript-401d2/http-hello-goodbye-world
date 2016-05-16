@@ -16,6 +16,7 @@ To run server: `node index.js` or `node index.js [port]`.
 In your browser, visit `http://localhost:[port]/hello` or `http://localhost:[port]/goodbye`.
 
 Examples of optional parameters:
+
   - `http://localhost:[port]/hello?format=figlet`
   - `http://localhost:[port]/hello?format=cowsay`
   - `http://localhost:[port]/goodbye?format=figlet`
