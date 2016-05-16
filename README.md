@@ -1,10 +1,8 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
+Simple http server written in node.js
 
-* Lab instructions are [here](LAB.md)
+Response changes based on url endpoint:
+'/' or '/index'
+'cats'
+'klingon'
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
-
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
-
-* Replace this README.md with your own!
+Created with [figlet](https://www.npmjs.com/package/figlet)
