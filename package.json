@@ -1,0 +1,25 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araedavis/http-hello-goodbye-world.git"
+  },
+  "author": "allison davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araedavis/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/araedavis/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "eslint": "^2.10.2"
+  },
+  "dependencies": {
+    "figlet": "^1.1.2"
+  }
+}
