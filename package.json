@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/DonChatelain/http-hello-goodbye-world#readme",
   "devDependencies": {
+    "cowsay": "^1.1.6",
     "nodemon": "^1.9.2"
   }
 }
