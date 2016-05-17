@@ -27,9 +27,14 @@ const server = http.createServer( (req, res ) => {
     res.write('Here\'s your super random number for the day: ' + random(1,1000) + '!' + ' Enjoy!');
     res.end();
     break;
+  case 'date':
+    var date = new Date().toString();
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write(date);
+    res.end();
+    break;
   }
 });
 
-server.listen ( 4444, () => {
-  console.log('Server opened on Port 4444');
-});
+
+module.exports = server;
