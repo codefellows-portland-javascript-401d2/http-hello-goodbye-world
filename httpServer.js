@@ -3,11 +3,13 @@ const url = require('url');
 const cowsay = require('cowsay');
 const figlet = require('figlet');
 
-function formatContent(urlParse, content) {
+let httpServer = {};
+
+httpServer.formatContent = function (urlParse, content) {
   switch (urlParse.query.format) {
   case 'cowsay':
     content = '<pre>' +
-      cowsay.say({ text: content.toUpperCase() }) +
+      cowsay.say({text: content.toUpperCase()}) +
       '</pre>';
     break;
   case 'figlet':
@@ -18,10 +20,10 @@ function formatContent(urlParse, content) {
   }
 
   return content;
-}
+};
 
-function newServer(portNumber = 4000) {
-  const server = http.createServer((req, res) => {
+httpServer.new = function (portNumber = 4000) {
+  http.createServer((req, res) => {
     if (req.method === 'GET') {
       let urlParse = url.parse(req.url, true);
       let bodyContent;
@@ -31,10 +33,10 @@ function newServer(portNumber = 4000) {
 
       switch (urlParse.pathname) {
       case '/hello':
-        bodyContent = formatContent(urlParse, 'Hello World');
+        bodyContent = httpServer.formatContent(urlParse, 'Hello World');
         break;
       case '/goodbye':
-        bodyContent = formatContent(urlParse, 'Goodbye World');
+        bodyContent = httpServer.formatContent(urlParse, 'Goodbye World');
         break;
       default:
         bodyContent = '<p>In your browswer, visit ' +
@@ -46,11 +48,7 @@ function newServer(portNumber = 4000) {
       res.writeHead(200, { 'content-type': 'text/html' });
       res.end(bodyContent);
     }
-  });
-
-  server.listen(portNumber);
-}
-
-module.exports = {
-  newServer
+  }).listen(portNumber);
 };
+
+module.exports = httpServer;

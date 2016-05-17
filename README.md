@@ -9,7 +9,7 @@ An http server that either responds with "hello world" or "goodbye world".
 3. Run `git checkout jluangphasy`
 4. Run `npm install`
 
-Default port number is 4000. If you want to use a different port, replace `[port]` with whatever port you want.
+Default port number is `4000`. If you want to use a different port, replace `[port]` with whatever port you want.
 
 To run server: `node index.js` or `node index.js [port]`.
 

@@ -1,4 +1,4 @@
-const server = require('./server');
+const httpServer = require('./httpServer');
 const portNumber = process.argv[2];
 
-server.newServer(portNumber);
+httpServer.new(portNumber);
