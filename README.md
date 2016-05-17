@@ -1,10 +1,11 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
 ===
 
-* Lab instructions are [here](LAB.md)
+Basic http server.  To run, clone this repo, and run
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+    node install
+    node server
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
+Then connect your browser to [the server](http://localhost:3000/).
 
-* Replace this README.md with your own!
+For an extra bonus, connect [here](http://localhost:3000/christmas).
