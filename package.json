@@ -1,0 +1,22 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server ===",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodwid/http-hello-goodbye-world.git"
+  },
+  "author": "David Goodwin <goodwid@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goodwid/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/goodwid/http-hello-goodbye-world#readme"
+}
