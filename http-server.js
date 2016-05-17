@@ -1,56 +1,80 @@
+const fs = require('fs');
 const http = require('http');
 const url = require('url');
 const cowsay = require('cowsay');
 const figlet = require('figlet');
+const jade = require('jade');
 
 const httpServer = {};
 
-httpServer.formatContent = function (urlParse, content) {
-  switch (urlParse.query.format) {
+httpServer.convertText = function (formatParam, content) {
+  let textObj = {
+    textConverted: false,
+    textContent: content
+  };
+
+  switch (formatParam) {
   case 'cowsay':
-    content = '<pre>' +
-      cowsay.say({text: content.toUpperCase()}) +
-      '</pre>';
+    textObj.textConverted = true;
+    textObj.textContent = cowsay.say({text: content.toUpperCase()});
     break;
   case 'figlet':
-    content = '<pre>' +
-      figlet.textSync(content.toUpperCase()) +
-      '</pre>';
+    textObj.textConverted = true;
+    textObj.textContent = figlet.textSync(content.toUpperCase());
     break;
   }
 
-  return content;
+  return textObj;
+};
+
+httpServer.jadeToHtml = function (filePath, locals) {
+  let compliedJadeFile = jade.compileFile(filePath);
+
+  return compliedJadeFile(locals);
 };
 
 httpServer.new = function (portNumber = 4000) {
   http.createServer((req, res) => {
+    let statusCode = 200;
+    let urlParse = url.parse(req.url, true);
+
     if (req.method === 'GET') {
-      let statusCode = 200;
-      let urlParse = url.parse(req.url, true);
-      let bodyContent;
-      let urlBase = `http://localhost:${portNumber}`;
-      let urlGreetings = `${urlBase}/greetings`;
-      let urlFarewells = `${urlBase}/farewells`;
+      let content;
+      let jadePath = './templates/page.index.jade';
+      let jadeLocals = {
+        textConverted: false
+      };
+      let obj = {};
 
       switch (urlParse.pathname) {
       case '/farewells':
-        bodyContent = httpServer.formatContent(urlParse, 'Goodbye World');
+        obj = httpServer.convertText(urlParse.query.format, 'Goodbye World');
+        jadeLocals.pageTitle = 'Farewells';
+        jadeLocals.textConverted = obj.textConverted;
+        jadeLocals.textContent = obj.textContent;
+
         break;
       case '/greetings':
-        bodyContent = httpServer.formatContent(urlParse, 'Hello World');
+        obj = httpServer.convertText(urlParse.query.format, 'Hello World');
+        jadeLocals.pageTitle = 'Greetings';
+        jadeLocals.textConverted = obj.textConverted;
+        jadeLocals.textContent = obj.textContent;
+
         break;
       default:
         statusCode = 400;
-        bodyContent = '<p>In your browswer, visit ' +
-          `<a href="${urlGreetings}">${urlGreetings}</a> or ` +
-          `<a href="${urlFarewells}">${urlFarewells}</a>.</p>`;
+        jadeLocals.pageTitle = 'Page Not Found';
+        jadePath = './templates/page.error.jade';
+
         break;
       }
+
+      content = httpServer.jadeToHtml(jadePath, jadeLocals);
 
       res.writeHead(statusCode, {
         'content-type': 'text/html'
       });
-      res.end(bodyContent);
+      res.end(content);
     }
   }).listen(portNumber);
 };
