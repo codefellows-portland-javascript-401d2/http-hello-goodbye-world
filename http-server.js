@@ -3,7 +3,7 @@ const url = require('url');
 const cowsay = require('cowsay');
 const figlet = require('figlet');
 
-let httpServer = {};
+const httpServer = {};
 
 httpServer.formatContent = function (urlParse, content) {
   switch (urlParse.query.format) {
