@@ -47,16 +47,16 @@ httpServer.new = function (portNumber = 4000) {
       let obj = {};
 
       switch (urlParse.pathname) {
-      case '/farewells':
-        obj = httpServer.convertText(urlParse.query.format, 'Goodbye World');
-        jadeLocals.pageTitle = 'Farewells';
+      case '/goodbye':
+        obj = httpServer.convertText(urlParse.query.library, 'Goodbye World');
+        jadeLocals.pageTitle = 'Goodbye World';
         jadeLocals.textConverted = obj.textConverted;
         jadeLocals.textContent = obj.textContent;
 
         break;
-      case '/greetings':
-        obj = httpServer.convertText(urlParse.query.format, 'Hello World');
-        jadeLocals.pageTitle = 'Greetings';
+      case '/hello':
+        obj = httpServer.convertText(urlParse.query.library, 'Hello World');
+        jadeLocals.pageTitle = 'Hello World';
         jadeLocals.textConverted = obj.textConverted;
         jadeLocals.textContent = obj.textContent;
 
