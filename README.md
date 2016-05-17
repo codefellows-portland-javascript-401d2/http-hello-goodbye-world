@@ -1,10 +1,23 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
+# ![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
 
-* Lab instructions are [here](LAB.md)
+An http server that either responds with "hello world" or "goodbye world".
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+## Getting Started
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
+1. Install [Node.js](https://nodejs.org/en/)
+2. Run `git clone https://github.com/jluangphasy/http-hello-goodbye-world.git`
+3. Run `git checkout jluangphasy`
+4. Run `npm install`
 
-* Replace this README.md with your own!
+Default port number is `4000`. If you want to use a different port, replace `[port]` with whatever port you want.
+
+To run server: `node index.js` or `node index.js [port]`.
+
+In your browser, visit `http://localhost:[port]/hello` or `http://localhost:[port]/goodbye`.
+
+Examples of optional parameters:
+
+  - `http://localhost:[port]/hello?format=figlet`
+  - `http://localhost:[port]/hello?format=cowsay`
+  - `http://localhost:[port]/goodbye?format=figlet`
+  - `http://localhost:[port]/goodbye?format=cowsay`
