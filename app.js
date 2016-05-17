@@ -1,11 +1,11 @@
 const http = require('http');
+const fs = require('fs');
 const cowsay = require('cowsay');
 const querystring = require('querystring');
 
+const cowTypes = ['holstein', 'jersey', 'ayrshire', 'swiss', 'guernsey'];
 
 var server = http.createServer( (req, res) =>{
-
-  // console.log(req.url);
 
   var path = req.url;
   var method = req.method;
@@ -33,16 +33,18 @@ var server = http.createServer( (req, res) =>{
   // Body content??
 
 
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  var cowText;
 
-  if(req.url === '/bye'){
-    cowText = cowsay.say({text: 'goodbye world'});
+  var cowText;
+  if(req.url === '/holstein'){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    cowText = cowsay.say({text: 'moo'});
+    res.end(cowText);
+
   }else{
-    cowText = cowsay.say({text: 'hello world'});
+    console.log('writing html');
+    fs.createReadStream('./index.html').pipe(res);
   }
 
-  res.end(cowText);
 });
 
 module.exports = server;
