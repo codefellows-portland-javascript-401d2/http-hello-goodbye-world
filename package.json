@@ -8,7 +8,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "gulp",
     "start": "node server.js"
   },
   "repository": {
