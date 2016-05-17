@@ -4,7 +4,7 @@
   "description": "![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server\r ===",
   "main": "server.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
     "test": "mocha",
