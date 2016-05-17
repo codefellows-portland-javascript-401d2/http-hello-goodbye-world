@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server ===",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.13.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "gulp",
