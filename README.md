@@ -1,10 +1,7 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
+##HTTP Server
 
-* Lab instructions are [here](LAB.md)
+Instructions for using the server:
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+The HTTP server will be running on port 4444
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
-
-* Replace this README.md with your own!
+The friendly cow will say "hello world", unless you provide the url /bye. Then the cow will day "goodbye world".

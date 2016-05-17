@@ -1,0 +1,29 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "HTTP-hello-goodby",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit-test && npm run lint",
+    "unit-test": "mocha",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billyham/http-hello-goodbye-world.git"
+  },
+  "author": "Dave Hanagan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billyham/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/billyham/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "cowsay": "^1.1.6"
+  }
+}
