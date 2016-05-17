@@ -1,10 +1,6 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
 
-* Lab instructions are [here](LAB.md)
+A very simple http server.
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+Text output depends on URL.
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
-
-* Replace this README.md with your own!
+URLs ending in / or /secret or /random will have different text outputs.
