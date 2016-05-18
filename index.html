@@ -6,20 +6,18 @@
 </head>
 <body>
 
-  <h1>Talk to Chatty Cow</h1>
+  <h2>Hear what cows have to say</h2>
 
 	<p>Choose a type of cow</p>
-	<ul>
-		<li>holstein</li>
-		<li>jersey</li>
-		<li>ayrshire</li>
-		<li>swiss</li>
-		<li>guernsey</li>
-	</ul>
 
-
-	<form method='POST' >
-		<input name="name" value="talk to me">
+	<form method="POST" id="cowSelect" action="/form">
+		<select name="cow" form="cowSelect">
+			<option value="holstein">Holstein</option>
+			<option value="jersey">Jersey</option>
+			<option value="ayrshire">Aryshire</option>
+			<option value="swiss">Brown Swill</option>
+			<option value="guernsey">Guernsey</option>
+		</select>
 		<button type="submit">send</button>
 	</form>
 
