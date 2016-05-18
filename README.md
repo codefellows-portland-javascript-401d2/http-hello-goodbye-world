@@ -1,10 +1,18 @@
-![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server
-===
+##HTTP Server with Cows
 
-* Lab instructions are [here](LAB.md)
+###Learn what cows have to say!
 
-* Lab Part 2 instructions are [here](LAB-Part2.md)
+The initial page will be a form asking you to select a cow breed. Choose one,
+you will then see what that cow has to say.
 
-* Add your own `.eslintrc`, edit/replace `.*ignore` files as needed
+But don't try to manually enter the "/form" path or you will get a cow giving you an
+error message.
 
-* Replace this README.md with your own!
+Enter one of the cow breeds manually into the url path as another valid way to choose
+a cow breed:
+
+... such as "/holstein"
+
+Or make the cow say whatever you want by adding a query string with the key word "talk" after the cow breed:
+
+... such as "/jersey?talk=mississippi"
