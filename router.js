@@ -7,7 +7,9 @@ const router = {
     '/index',
     '/404',
     '/godzilla',
-    '/form'
+    '/godzilla2',
+    '/form',
+    '/thankyou'
   ],
   route: function(path, res, type) {
     if (!type) type = 'text/html';

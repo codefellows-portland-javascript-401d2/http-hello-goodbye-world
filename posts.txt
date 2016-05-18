@@ -1,1 +1,1 @@
-name=daf&color=adf
+{"name":"DON","color":"blue"}
