@@ -47,4 +47,8 @@ describe('http server',() => {
         done();
       });
   });
+
+  after(() => {
+    server.close();
+  });
 });
