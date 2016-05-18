@@ -3,6 +3,7 @@ const url = require('url');
 const m = require('moment');
 const fs = require('fs');
 
+console.log('got here');
 const server = http.createServer((req,res) => {
   if (req.method === 'GET') {
     var resource = url.parse(req.url, true).pathname;
@@ -44,4 +45,6 @@ const server = http.createServer((req,res) => {
   }
   // res.end('\n');
 });
-server.listen(process.argv[2] || 3000);
+server.listen(process.argv[2] || 8080);
+
+module.exports = server;
