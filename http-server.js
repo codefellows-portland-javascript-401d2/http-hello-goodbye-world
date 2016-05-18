@@ -7,7 +7,7 @@ const jade = require('jade');
 
 const httpServer = {};
 
-httpServer.convertText = function (formatParam, content) {
+httpServer.convertText = (formatParam, content) => {
   let textObj = {
     textConverted: false,
     textContent: content
@@ -27,25 +27,24 @@ httpServer.convertText = function (formatParam, content) {
   return textObj;
 };
 
-httpServer.jadeToHtml = function (filePath, locals) {
+httpServer.jadeToHtml = (filePath, locals) => {
   let compliedJadeFile = jade.compileFile(filePath);
 
   return compliedJadeFile(locals);
 };
 
-httpServer.new = function (portNumber = 4000) {
-  http.createServer((req, res) => {
+httpServer.new = () => {
+  return http.createServer((req, res) => {
     let statusCode = 200;
     let urlParse = url.parse(req.url, true);
+    let content;
+    let jadePath = './templates/page.index.jade';
+    let jadeLocals = {
+      textConverted: false
+    };
+    let obj = {};
 
     if (req.method === 'GET') {
-      let content;
-      let jadePath = './templates/page.index.jade';
-      let jadeLocals = {
-        textConverted: false
-      };
-      let obj = {};
-
       switch (urlParse.pathname) {
       case '/goodbye':
         obj = httpServer.convertText(urlParse.query.library, 'Goodbye World');
@@ -59,6 +58,11 @@ httpServer.new = function (portNumber = 4000) {
         jadeLocals.pageTitle = 'Hello World';
         jadeLocals.textConverted = obj.textConverted;
         jadeLocals.textContent = obj.textContent;
+
+        break;
+      case '/form':
+        jadeLocals.pageTitle = 'Form';
+        jadePath = './templates/page.form.jade';
 
         break;
       default:
@@ -75,8 +79,30 @@ httpServer.new = function (portNumber = 4000) {
         'content-type': 'text/html'
       });
       res.end(content);
+    } else if (req.method === 'POST' && urlParse.pathname === '/form') {
+      let postUrl = 'http://localhost:8080/form?';
+
+      req.on('data', chunk => {
+        postUrl += chunk.toString();
+      });
+
+      req.on('end', () => {
+        urlParse = url.parse(postUrl, true);
+
+        obj = httpServer.convertText(urlParse.query.library, urlParse.query.text);
+        jadeLocals.pageTitle = urlParse.query.text;
+        jadeLocals.textConverted = obj.textConverted;
+        jadeLocals.textContent = obj.textContent;
+
+        content = httpServer.jadeToHtml(jadePath, jadeLocals);
+
+        res.writeHead(statusCode, {
+          'content-type': 'text/html'
+        });
+        res.end(content);
+      });
     }
-  }).listen(portNumber);
+  });
 };
 
 module.exports = httpServer;
