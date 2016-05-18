@@ -1,3 +1,6 @@
 const httpServer = require('./http-server');
+const newServer = httpServer.new();
 
-httpServer.new().listen(8080);
+newServer.listen(8080, () => {
+  console.log('Opened server on %j', newServer.address());
+});
