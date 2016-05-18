@@ -9,15 +9,16 @@ An http server that either responds with "hello world" or "goodbye world".
 3. Run `git checkout jluangphasy`
 4. Run `npm install`
 
-Default port number is `4000`. If you want to use a different port, replace `[port]` with whatever port you want.
+Default port number is `8080`.
 
-To run server: `node index.js` or `node index.js [port]`.
+To run server: `node index.js`.
 
-In your browser, visit `http://localhost:[port]/hello` or `http://localhost:[port]/goodbye`.
+Routes:
 
-Examples of optional parameters:
-
-  - `http://localhost:[port]/hello?format=figlet`
-  - `http://localhost:[port]/hello?format=cowsay`
-  - `http://localhost:[port]/goodbye?format=figlet`
-  - `http://localhost:[port]/goodbye?format=cowsay`
+  - `http://localhost:8080/hello`
+  - `http://localhost:8080/hello?format=figlet`
+  - `http://localhost:8080/hello?format=cowsay`
+  - `http://localhost:8080/goodbye`
+  - `http://localhost:8080/goodbye?format=figlet`
+  - `http://localhost:8080/goodbye?format=cowsay`
+  - `http://localhost:8080/form`
