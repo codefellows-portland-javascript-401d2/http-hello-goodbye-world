@@ -3,21 +3,27 @@ const url = require('url');
 const m = require('moment');
 const fs = require('fs');
 
-console.log('got here');
 const server = http.createServer((req,res) => {
   if (req.method === 'GET') {
     var resource = url.parse(req.url, true).pathname;
+    console.log(`Request received for ${resource}`);
     switch (resource) {
     case '/':{
+      req.on('error', err => {
+        res.write(err);
+      });
       res.writeHead(200, {'Content-Type': 'text/plain'});
       res.write('Hello world!\n');
+      res.end('\n');
       break;
     }
     case '/christmas':{
-      const christmas = m('12252016','MMDDYYYY');
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      const christmas = m('12-25-2016','MM-DD-YYYY');
       const now = m();
       const days = christmas.diff(now,'days');
       res.write(`There are ${days} days until Christmas!`);
+      res.end('\n');
       break;
     }
     case '/form':{
@@ -27,7 +33,7 @@ const server = http.createServer((req,res) => {
     }
     default: {
       res.statuscode = 400;
-      res.end('sorry charlie');
+      res.end(`Sorry, ${resource} is not a valid endpoint.`);
     }
     }
   } else if (req.method === 'POST') {
@@ -43,8 +49,8 @@ const server = http.createServer((req,res) => {
       res.end('\n');
     });
   }
-  // res.end('\n');
+
 });
-server.listen(process.argv[2] || 8080);
+
 
 module.exports = server;

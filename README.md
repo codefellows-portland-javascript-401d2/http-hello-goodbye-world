@@ -10,9 +10,9 @@ Basic http server implemented using node.js.  To run, clone this repo, and run
 
 |endpoint|description|
 |-|-|
-|[root](http://localhost:8080/)|displays Hello world|
-|[Christmas](http://localhost:8080/christmas)|Shows days until Christmas|
-|[form display](http://localhost:8080/form)|entry form for birthday|
+|[root](http://localhost:9000/)|displays Hello world|
+|[Christmas](http://localhost:9000/christmas)|Shows days until Christmas|
+|[form display](http://localhost:9000/form)|entry form for birthday|
 
 To run tests:
 
