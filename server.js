@@ -41,7 +41,7 @@ const server = http.createServer((req,res) => {
     req.on('data', (chunk) => body += chunk);
     req.on('end', () => {
       const inDate = body.split('=')[1];
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.writeHead(201, {'Content-Type': 'text/plain'});
       const birthday = m(inDate,'YYYY-MM-DD');
       const now = m();
       const years = now.diff(birthday,'years');
