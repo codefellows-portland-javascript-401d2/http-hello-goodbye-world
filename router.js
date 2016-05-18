@@ -5,7 +5,9 @@ const router = {
     '/hello', // ^^ (i.e. goodbye.html coincides with /goodbye) ^^
     '/goodbye',
     '/index',
-    '/404'
+    '/404',
+    '/godzilla',
+    '/form'
   ],
   route: function(path, res, type) {
     if (!type) type = 'text/html';
