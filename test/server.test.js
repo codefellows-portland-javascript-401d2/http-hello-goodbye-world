@@ -19,4 +19,24 @@ describe( 'http server', () => {
       });
   });
 
+  it( 'sends back secret response', done => {
+    request
+      .get('/secret')
+      .end( (err,res ) => {
+        assert.equal( res.statusCode, 200);
+        assert.ok( res.text );
+        done();
+      });
+  });
+
+  it( 'sends back error response', done => {
+    request
+      .get('/kittykat')
+      .end( (err,res ) => {
+        assert.equal( res.statusCode, 400);
+        assert.ok( res.text );
+        done();
+      });
+  });
+
 });

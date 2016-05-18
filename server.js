@@ -36,7 +36,7 @@ const server = http.createServer( (req, res ) => {
       break;
     default:
       res.statuscode = 400;
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.writeHead(400, {'Content-Type': 'text/plain'});
       res.write('ERROR 400 - Your request was bad and you should feel bad!');
       res.end();
     }
