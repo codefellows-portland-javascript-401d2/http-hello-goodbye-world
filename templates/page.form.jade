@@ -1,0 +1,27 @@
+extends ./layout.default.jade
+
+block content
+  form(action="/form" method="post")
+    legend Create ASCII art
+    br
+    br
+    div
+      label(for="text") Text to transform
+      br
+      input(type="text" name="text" id="text" value="Test" autocomplete="off")
+    br
+    br
+    div
+      label(for="library-option-cowsay") Choose library
+      br
+      label(for="library-option-cowsay")
+        input(type="radio" name="library" id="library-option-cowsay" value="cowsay" checked)
+        span Cowsay
+      br
+      label(for="library-option-figlet")
+        input(type="radio" name="library" id="library-option-figlet" value="figlet")
+        span Figlet
+    br
+    br
+    div
+      button(type="submit") Create

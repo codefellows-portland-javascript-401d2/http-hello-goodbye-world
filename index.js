@@ -1,4 +1,6 @@
-const httpServer = require('./httpServer');
-const portNumber = process.argv[2];
+const httpServer = require('./http-server');
+const newServer = httpServer.new();
 
-httpServer.new(portNumber);
+newServer.listen(8080, () => {
+  console.log('Opened server on %j', newServer.address());
+});
