@@ -20,8 +20,10 @@
   "homepage": "https://github.com/billyham/http-hello-goodbye-world#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "eslint": "^2.10.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "superagent": "^1.8.3"
   },
   "dependencies": {
     "cowsay": "^1.1.6"
