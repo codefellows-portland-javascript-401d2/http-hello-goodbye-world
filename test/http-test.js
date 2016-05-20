@@ -28,6 +28,16 @@ describe('http server ok', () =>{
       });
   });
 
+  it('creates posts file', done =>{
+    request
+      .post('/cats')
+      .end((err, res) => {
+        assert.equal(res.statusCode, 200);
+        assert.ok(res.text);
+        done();
+      });
+  });
+
   it('returns err msg', done =>{
     request
       .post('upload')
