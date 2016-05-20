@@ -32,6 +32,19 @@ describe( 'http server', () => {
       });
   });
 
+  var pattern = /^Here's your super random number for the day: [0-9]+! Enjoy!/;
+
+  it( 'sends back random number', done => {
+    request
+      .get('/random')
+      .end( (err,res ) => {
+        assert.equal( res.statusCode, 200);
+        assert.isTrue(pattern.test(res.text), 'response text did not match!');
+        assert.ok( res.text );
+        done();
+      });
+  });
+
   it( 'sends back date', done => {
     request
       .get('/date')
@@ -53,5 +66,7 @@ describe( 'http server', () => {
         done();
       });
   });
+
+
 
 });
