@@ -18,4 +18,23 @@ describe('http server ok', () =>{
       });
   });
 
+  it('returns cat html', done =>{
+    request
+      .get('')
+      .end((err, res) => {
+        assert.equal(res.statusCode, 200);
+        assert.ok(res.text);
+        done();
+      });
+  });
+
+  it('returns err msg', done =>{
+    request
+      .post('upload')
+      .end((err, res)=>{
+        assert.equal(res.statusCode, 404);
+        assert.ok(res.text);
+        done();
+      });
+  });
 });
