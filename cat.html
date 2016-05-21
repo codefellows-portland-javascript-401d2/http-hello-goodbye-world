@@ -5,19 +5,14 @@
 	<title>all the cats</title>
 </head>
 <body>
-	<h2>cats</h2>
-  <form>
-		<select list="cat-memes" id="cat-memes">
-
-			<option value="nyan">Nyan</option>
-			<option value="maru">Maru</option>
-			<option value="grumpy">Grumpy</option>
-			<option value="lil bub">Lil Bub</option>
-		</select>
+	<h2>Cats</h2>
+	<p>Do you wish you could hug all the cats?</p>
+  <form method="POST" id="catMessage" action="/meow">
+		<p>Name:</p><input name="Name">
 		<br>
-		<textarea name="message" rows="5" columns="10"></textarea>
+		<p>Favorite Cat:</p><input name="Cat">
 		<br>
-		<input type="submit" method="post"></input>
+		<button type="submit">Meow!</button>
 	</form>
 
 </body>

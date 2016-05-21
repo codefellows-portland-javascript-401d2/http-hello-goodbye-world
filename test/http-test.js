@@ -28,7 +28,7 @@ describe('http server ok', () =>{
       });
   });
 
-  it('creates posts file', done =>{
+  it('posts message contents in new file', done =>{
     request
       .post('/cats')
       .end((err, res) => {
@@ -40,10 +40,10 @@ describe('http server ok', () =>{
 
   it('returns err msg', done =>{
     request
-      .post('upload')
+      .get('/upload')
       .end((err, res)=>{
         assert.equal(res.statusCode, 404);
-        assert.ok(res.text);
+        assert.equal(res.text, 'Error: these aren\'t the cats you\'re looking for');
         done();
       });
   });
