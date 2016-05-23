@@ -1,21 +1,32 @@
 const http = require('http');
 const fs = require('fs');
-const port = 8000;
+const url = require('url');
+const queryStr = require('querystring');
+const router = require('./router');
 
 var server = http.createServer((request, response) => {
   
-  if (request.url === '/hello') {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream('html/hello.html').pipe(response);
-  } else if (request.url === '/goodbye') {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream('html/goodbye.html').pipe(response);
+  const thisURL = url.parse(request.url, true);
+  const thisPath = thisURL.pathname;
+  const thisQuery = thisURL.query;
+  
+  if (thisPath === '/godzilla' && thisQuery.godzilla === 'gojira') { // Godzilla secret
+    router.route('/godzilla2', response);
+    
+  } else if (request.method === 'GET') {
+    router.route(thisPath, response);
+    
+  } else if (request.method === 'POST') {
+    request.pipe(fs.createWriteStream('posts.txt'));
+    response.writeHead(302, {
+      'Location': '/thankyou'
+    });
+    response.end();
   } else {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    fs.createReadStream('html/index.html').pipe(response);
+    response.statusCode = 400;
+    response.end('GET or POST only!');
   }
+  
 });
 
-server.listen(port, () => {
-  console.log('opened server on %j', server.address());
-});
+module.exports = server;
