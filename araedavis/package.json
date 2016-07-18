@@ -1,0 +1,34 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "![CF](http://i.imgur.com/7v5ASc8.png) Http Hello/Goodbye World Server ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp",
+    "lint": "gulp lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araedavis/http-hello-goodbye-world.git"
+  },
+  "author": "allison davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araedavis/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/araedavis/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "eslint": "^2.10.2",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-spawn-mocha": "^2.2.2",
+    "mocha": "^2.4.5",
+    "superagent": "^2.0.0-alpha.3"
+  },
+  "dependencies": {
+    "figlet": "^1.1.2"
+  }
+}
