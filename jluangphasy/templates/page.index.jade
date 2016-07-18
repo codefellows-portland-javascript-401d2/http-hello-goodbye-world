@@ -1,0 +1,7 @@
+extends ./layout.default.jade
+
+block content
+  if textConverted
+    pre #{textContent}
+  else
+    p #{textContent}
